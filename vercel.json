@@ -1,16 +1,16 @@
 {
-  "build": {
-    "env": {
-      "NODE_VERSION": "18"
-    }
-  },
-  "routes": [
-    {
-      "handle": "filesystem"
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "framework": "hono",
+    "outputDirectory": "src",
+    "functions": {
+        "src/server.mjs": {
+            "includeFiles": "./src/templates/**/*.art"
+        }
     },
-    {
-      "src": "/(.*)",
-      "dest": "/api/__vercel_builder"
-    }
-  ]
+    "rewrites": [
+        {
+            "source": "/favicon.ico",
+            "destination": "/favicon.png"
+        }
+    ]
 }
